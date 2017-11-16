@@ -1,0 +1,69 @@
+  
+<div class="box-content">
+    <table class="table table-striped table-bordered" >
+        <tr>
+            <td></td>
+            <td>
+                <span>Invoice Id#.00</span> <?php echo $order_table_info->order_id ?>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h2>Customer info:</h2>
+                <?php echo $customer_info->first_name.' '.$customer_info->last_name ?><br>
+                <?php echo $customer_info->email_address ?><br>
+                <?php echo $customer_info->country ?><br>
+                <?php echo $customer_info->city ?>- <?php echo $customer_info->post_zip_code?><br>
+            <?php echo $customer_info->mobile_number?><br>
+            </td>
+                <td>
+                <h2>Shipping info:</h2>
+                <?php echo $shipping_info->first_name.' '.$shipping_info->last_name ?><br>
+                <?php echo $shipping_info->email_address ?><br>
+                <?php echo $shipping_info->country ?><br>
+                <?php echo $shipping_info->city ?>- <?php echo $shipping_info->post_zip_code?><br>
+            <?php echo $shipping_info->mobile_number?><br>
+            </td>
+       
+        </tr>
+        <tr>
+            <td>
+                <h2>Payment Info:</h2>
+              <?php echo $payment_info->payment_type?>
+            </td>
+        </tr>
+        
+    </table>
+</div>
+
+<div class="box-content">
+    <table class="table table-striped table-bordered ">
+        <thead>
+            <tr>
+                <th>Product Name</th>
+                <th>Product Sales Quantity</th>
+                <th>Product Price</th>
+            </tr>
+        </thead>   
+        <tbody>
+            <?php
+            foreach ($order_details as $v_order_details) {
+                ?>
+                <tr>
+                    <td class="center"><?php echo $v_order_details->product_name ?></td>
+
+                    <td class="center"><?php echo $v_order_details->product_sales_quantity?></td>
+                    <td class="center">BDT.<?php echo $v_order_details->product_price ?>TK.</td>
+                </tr>
+            <?php } ?>
+                <tr>
+                    <td>Total</td>
+                    <td></td>
+                    <td>BDT.<?php echo $order_table_info->order_total ?>tk.</td>
+                </tr>
+        </tbody>
+    </table>
+</div>
+
+ 
+
